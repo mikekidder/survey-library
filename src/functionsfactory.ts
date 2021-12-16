@@ -143,15 +143,17 @@ function calcInArray(
   if (Array.isArray(v.data)) {
     for (var i = 0; i < v.data.length; i++) {
       var item = v.data[i];
-      if (!!item && item[<string>v.name]) {
-        res = func(res, item[<string>v.name]);
+      if (!!item) {
+        var val = parseFloat(item[<string>v.name]) || 0;
+        res = func(res, val);
       }
     }
   } else {
     for (var key in v.data) {
       var item = v.data[key];
-      if (!!item && item[<string>v.name]) {
-        res = func(res, item[<string>v.name]);
+      if (!!item) {
+        var val = parseFloat(item[<string>v.name]) || 0;
+        res = func(res, val);
       }
     }
   }
